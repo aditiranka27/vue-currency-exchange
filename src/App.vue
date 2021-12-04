@@ -1,15 +1,14 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <CurrencyExchange/>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import CurrencyExchange from './components/CurrencyExchange.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    CurrencyExchange,
   }
 }
 </script>
@@ -19,8 +18,5 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
