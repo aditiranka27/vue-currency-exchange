@@ -1,27 +1,27 @@
 <template>
   <div class="position-absolute top-50 start-50 translate-middle">
     <div class="row">
-      <!-- Origin-Currency -->
+      <!-- Source-Currency -->
       <div class="col-6">
-        <label for="OriginCurrency">From:</label>
+        <label for="SourceCurrency">From:</label>
         <div class="input-group mb-3">
-          <select class="form-select classic" aria-label="OriginCurrency" @change="selectSourceCurrency($event)">
+          <select class="form-select classic" aria-label="SourceCurrency" @change="selectSourceCurrency($event)">
             <option value="null">Select Currency</option>
             <option v-for="curr in fromCurrencies" :key="curr.symbol" :value="curr.symbol">{{ curr.name }}</option>
           </select>
         </div>
-        <input type="text" v-model="amount" class="form-control amt-input" id="formGroupExampleInput2" placeholder="Amount">
+        <input type="text" v-model="amount" class="form-control amt-input" placeholder="Amount">
       </div>
-      <!-- Destination Currency -->
+      <!-- Target Currency -->
       <div class="col-6">
-        <label for="DestinationCurrency">To:</label>
+        <label for="TargetCurrency">To:</label>
         <div class="input-group mb-3">
-          <select class="form-select classic" aria-label="OriginCurrency" @change="selectTargetCurrency($event)">
+          <select class="form-select classic" aria-label="TargetCurrency" @change="selectTargetCurrency($event)">
             <option value="null">Select Currency</option>
             <option v-for="curr in toCurrencies" :key="curr.symbol" :value="curr.symbol">{{ curr.name }}</option>
           </select>
         </div>
-        <input type="text" v-model="finalAmount" class = "form-control amt-input" id="formGroupExampleInput2" placeholder="Amount">
+        <input type="text" v-model="finalAmount" class = "form-control amt-input" placeholder="Amount">
       </div>
     </div>
     <div v-if="errors.length" class="errors">
