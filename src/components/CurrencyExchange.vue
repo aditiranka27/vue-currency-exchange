@@ -5,7 +5,7 @@
       <div class="col-6">
         <label for="SourceCurrency">From:</label>
         <div class="input-group mb-3">
-          <select class="form-select classic" aria-label="SourceCurrency" @change="selectSourceCurrency($event)">
+          <select class="form-select classic curr-source" aria-label="SourceCurrency" @change="selectSourceCurrency($event)">
             <option value="null">Select Currency</option>
             <option v-for="curr in fromCurrencies" :key="curr.symbol" :value="curr.symbol">{{ curr.name }}</option>
           </select>
@@ -16,12 +16,12 @@
       <div class="col-6">
         <label for="TargetCurrency">To:</label>
         <div class="input-group mb-3">
-          <select class="form-select classic" aria-label="TargetCurrency" @change="selectTargetCurrency($event)">
+          <select class="form-select classic curr-target" aria-label="TargetCurrency" @change="selectTargetCurrency($event)">
             <option value="null">Select Currency</option>
             <option v-for="curr in toCurrencies" :key="curr.symbol" :value="curr.symbol">{{ curr.name }}</option>
           </select>
         </div>
-        <input type="text" v-model="finalAmount" class = "form-control amt-input" placeholder="Amount">
+        <input type="text" v-model="finalAmount" class = "form-control final-input" placeholder="Amount">
       </div>
     </div>
     <div v-if="errors.length" class="errors">
@@ -85,13 +85,13 @@ export default {
         this.errors.push('Amount should be a valid number');
       }
       if (!this.sourceCurrency) {
-        this.errors.push('Please select a source currency.');
+        this.errors.push('Please select a source currency');
       }
       if (!this.targetCurrency) {
         this.errors.push('Please select a target currency');
       }
       
-      if (this.errors.length == 0) {
+      if (this.errors.length === 0) {
         const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -162,7 +162,7 @@ select.classic:focus {
   outline: 0;
 }
 
-.amt-input{
+.amt-input .final-input{
   border-radius: 0%;
 }
 .convert-btn{
